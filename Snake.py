@@ -3,10 +3,8 @@ from random import randrange
 
 game_width, game_height = 400, 600  # Ширина, Высота экрана
 size = 40  # Толщина
-x, y = randrange(size, game_width - size, size), randrange(size, game_height - size,
-                                                           size)  # Начальное случайное положение змеи
-apple = randrange(size, game_width - size, size), randrange(size, game_height - size,
-                                                            size)  # Начальное случайное положение яблок
+x, y = randrange(size, game_width - size, size), randrange(size, game_height - size, size)  # Начальное случайное положение змеи
+apple = randrange(size, game_width - size, size), randrange(size, game_height - size, size)  # Начальное случайное положение яблок
 length = 1  # Длина змейки
 snake = [(x, y)]  # Координаты змейки
 dx, dy = 0, 0  # Направление движения
