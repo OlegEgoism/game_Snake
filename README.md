@@ -1,1 +1,1 @@
-![info](https://github.com/OlegEgoism/game_Snake/assets/81327146/b859eb99-7949-49c2-bbc2-0a9e7fb2b3db)![info](https://github.com/OlegEgoism/game_Snake/assets/81327146/b653ba6d-63eb-411c-85f7-9efe3b87bd93)
+![info](https://github.com/OlegEgoism/game_Snake/assets/81327146/a9548ecb-ba2b-4563-b296-83199620d10d)
