@@ -17,6 +17,12 @@ surface = pygame.display.set_mode([game_width, game_height])  # Окно экр�
 clock = pygame.time.Clock()  # Скорость змейки регулятор
 font_score = pygame.font.SysFont('Times New Roman', 25, bold=True)  # Надпись Очки размер текста
 img = pygame.image.load('Fon.jpg').convert()  # Изображение фона
+pygame.mixer.init()
+sound = pygame.mixer.Sound("Point.wav")  # Музыка игры
+pygame.mixer.music.load('Game.wav')  # Звук змейки
+game_over_sound_played = False
+pygame.mixer.init()
+pygame.mixer.music.play(-1)
 
 
 def close_game():
@@ -24,14 +30,14 @@ def close_game():
         if event.type == pygame.QUIT:
             exit()
 
+
 while True:
     surface.blit(img, (0, 0))
     for i, j in snake:
         # Рисуем границу вокруг каждого сегмента змеи
         pygame.draw.rect(surface, pygame.Color('black'), (i, j, size, size))  # Обводка
         pygame.draw.rect(surface, pygame.Color('green'), (i + 2, j + 2, size - 4, size - 4))
-    # pygame.draw.rect(surface, pygame.Color('yellow'), (*apple, size, size))
-    pygame.draw.circle(surface, pygame.Color('yellow'), (apple[0] + size // 2, apple[1] + size // 2), size // 2) # Цвет кубика
+    pygame.draw.circle(surface, pygame.Color('yellow'), (apple[0] + size // 2, apple[1] + size // 2), size // 2)  # Цвет кубика
 
     render_score = font_score.render(f'Очки: {score}', 0, pygame.Color('royalblue'))  # Надпись Очки цвет
     surface.blit(render_score, (6, 2))  # Надпись очки расположение
@@ -48,7 +54,7 @@ while True:
         score += 1
         snake_speed -= 1
         snake_speed = max(snake_speed, 4)
-    # game over
+        sound.play()
     if x < 0 or x > game_width - size or y < 0 or y > game_height - size or len(snake) != len(
             set(snake)):  # Границы игры
         while True:
